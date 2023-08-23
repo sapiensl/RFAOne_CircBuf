@@ -10,5 +10,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: helloaction
-      run: echo "Hello Github Action!"
+    - name: buildAndTest
+      run: cmake -S . -B build && cmake --build build && cd build && ctest -C Debug
