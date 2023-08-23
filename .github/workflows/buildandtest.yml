@@ -14,4 +14,4 @@ jobs:
     - name: list files in repo
       run: ls -a
     - name: build and test
-      run: cmake -S . -B build && cmake --build build && cd build && ctest -C Debug
+      run: cd RFAOne_CircBuf && cmake -S . -B build && cmake --build build && cd build && ctest -C Debug
