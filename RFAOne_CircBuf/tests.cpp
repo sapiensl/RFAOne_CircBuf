@@ -3,7 +3,8 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-//the test case will run as many times as there are sections in it, calling one section after another in isolation.
+//the testing is done using the Catch2 framework which is included as a single header file.
+//the test case below will run as many times as there are sections in it, calling one section after another in isolation.
 
 TEST_CASE("base CircularBuffer functionality") {
 	CircularBuffer<int, 3> cb;

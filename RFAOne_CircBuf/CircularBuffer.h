@@ -19,14 +19,13 @@ Author: Leon Hellstern
 
 template<typename TYPE, int SIZE> class CircularBuffer{
 public:
-	CircularBuffer() {
-		_readIndex = 0;
-		_writeIndex = 0;
-		_count = 0;
-	}
-	~CircularBuffer() {
+	CircularBuffer() : _readIndex(0), _writeIndex(0), _count(0){}
+	~CircularBuffer() = default;
 
-	}
+	//for now, we disable move/copy constructors and operator=
+	CircularBuffer(const CircularBuffer& rh) = delete;
+	CircularBuffer(CircularBuffer&& rf) = delete;
+	CircularBuffer& operator= (const CircularBuffer& rh) = delete;
 
 	//pushes a given element on the buffer
 	void push(TYPE elem) {
