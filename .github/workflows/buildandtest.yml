@@ -1,0 +1,17 @@
+name: buildAndTestAction
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: check out repo
+      uses: actions/checkout@v3
+    - name: list files in repo
+      run: ls -a
+    - name: build and test
+      run: cd RFAOne_CircBuf && cmake -S . -B build && cmake --build build && cd build && ctest -C Debug
