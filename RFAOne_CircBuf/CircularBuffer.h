@@ -4,7 +4,7 @@
 
 /*
 
-This is my implementation for the coding task given to implement a circular buffer as per your specification.
+This is my implementation of the coding task given to implement a circular buffer as per your specification.
 It can store a fixed but arbitrary amount of elements. It also can store arbitrary types, both through the template implementation.
 I thought about doing an implementation that can store different types dynamically, but ended up doing it as seen here since
 you can also just instantiate this template with std::variant or std::any as its stored type, basically adding the functionality for free (std::any from C++17 on).
@@ -17,7 +17,7 @@ also threadsafe for multiple consumers/producers if used accordingly.
 Author: Leon Hellstern
 */
 
-template<typename TYPE, int SIZE> class CircularBuffer{
+template<typename TYPE, size_t SIZE> class CircularBuffer{
 public:
 	CircularBuffer() : _readIndex(0), _writeIndex(0), _count(0){}
 	~CircularBuffer() = default;
@@ -67,7 +67,7 @@ public:
 
 private:
 
-	//moves a given index forward through according to the array structure.
+	//moves a given index forward through the underlying array according to its structure
 	void advance(size_t& index) {
 		index = (index + 1) % _container.size();
 	}
